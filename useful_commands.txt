@@ -1,0 +1,3 @@
+# Numerical, side-by-side diff
+diff -y file1 file2 | cat -n | grep -v -e '($'  
+
