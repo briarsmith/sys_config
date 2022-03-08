@@ -1,3 +1,5 @@
 # Numerical, side-by-side diff
-diff -y file1 file2 | cat -n | grep -v -e '($'  
+diff -y file1 file2 | cat -n | grep -v -e '($'
+# Recursively find a filename in a directory and cd to the first instance  
+cd $(find . -name "filename" | head -1)
 
