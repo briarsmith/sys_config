@@ -6,42 +6,32 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-
-" Git plugin
-Plugin 'tpope/vim-fugitive'
-
-" Git diffs at a glance
-Plugin 'airblade/vim-gitgutter'
+Plugin 'VundleVim/Vundle.vim' " let Vundle manage Vundle, required
+Plugin 'tpope/vim-fugitive' " Git plugin
+Plugin 'airblade/vim-gitgutter' " Git diffs at a glance
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
 """"""" Non-Vundle related config starts here """""""
+syntax on " Necessary on MacOS for displaying syntax
 colorscheme desert
-set number
-imap jj <Esc>
+imap jj <Esc> 
 
 filetype plugin indent on
-" show existing tab with 4 spaces width
-set tabstop=4
-" when indenting with '>', use 4 spaces width
-set shiftwidth=4
-" On pressing tab, insert 4 spaces
-set expandtab
 
-set autoindent
+set tabstop=4 " show existing tab with 4 spaces width
+set shiftwidth=4 " Allows for 'shift + >' in visual mode to shift by 4 spaces rather than 8
+set expandtab " On pressing tab, insert 4 spaces
+set autoindent " Performs proper indentation most of the time
 
-" turn hybrid line numbers on
-set number relativenumber
+set mouse=a " Allow for mouse clicks on the vim screen.
 
-" turn hybrid line numbers off
-set nonumber norelativenumber
-
-" toggle hybrid line numbers
-set number! relativenumber!
+set number " Line numbers
+set number relativenumber " turn hybrid line numbers on
+set nonumber norelativenumber " turn hybrid line numbers off
+set number! relativenumber!  " toggle hybrid line numbers
 
 " Return to last edit position when opening files
 autocmd BufReadPost *
@@ -49,8 +39,7 @@ autocmd BufReadPost *
      \   exe "normal! g`\"" |
      \ endif
 
-" Setting scrolloff keeps cursor centered when possible
-set scrolloff=999
+set scrolloff=999 " Setting scrolloff keeps cursor centered when possible
 
 " Registers will store 1000 lines each (default is 50)
 " For example, when yanking will only yank 50 lines

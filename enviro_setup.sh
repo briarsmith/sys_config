@@ -1,6 +1,15 @@
-# Create hardlink from these files to filesystem ones
-ln vimrc ~/.vimrc
-ln tmux.conf ~/.tmux.conf 
+# Hard link ensures that there will be no differences between system and repo files. They will be up to date with eachother always (same file).
+echo This script will create a hard link from the vimrc and tmux files in this directory to ~/.vimrc and ~/.tmux.conf, deleting the old ones. Skip? [y/n]
+read response
+if [ $response == n ]
+then
+    echo Creating hard link with vimrc and tmux
+    rm ~/.vimrc
+    rm ~/.tmux.conf
+    # Create hardlink from these files to filesystem ones
+    ln vimrc ~/.vimrc
+    ln tmux.conf ~/.tmux.conf 
+fi
 
 sudo apt-get update
 # Install Zsh and set it as default shell
